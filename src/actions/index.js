@@ -5,12 +5,16 @@ export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 
 export const getCharacter = () => dispatch => {
+  dispatch({
+    type:FETCH
+  })
   axios
     .get('https://swapi.co/api/people/')
-    .then(({ data }) => {
-      dispatch({ type: FETCH, payload: data.results });
+    .then(response => {
+      dispatch({ type: SUCCESS, payload: response.data.results });
     })
-    .catch(error => {
-      dispatch({ type: FETCH, payload: error });
+    .catch((error) => {
+      console.log("error",error)
+      dispatch({ type: ERROR});
     });
 };

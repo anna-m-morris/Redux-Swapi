@@ -1,8 +1,8 @@
-import {FETCH, SUCCESS,ERROR} from "../actions/index"
+import {FETCH, SUCCESS, ERROR} from "../actions/index"
 
 const initialState = {
   characters: [],
-  fetching: Boolean,
+  fetching: false,
   error: null
 };
 export const charsReducer = (state = initialState, action) => {
